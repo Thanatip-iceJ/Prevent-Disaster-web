@@ -1,0 +1,13 @@
+th,
+td {
+  border-collapse: collapse;
+  border: 1px black solid;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  text-align: center;
+}
+
+th {
+  background: #7a7a7a;
+  color: white;
+}

@@ -1,13 +1,15 @@
 th,
 td {
   border-collapse: collapse;
-  border: 1px black solid;
   padding-inline: 1rem;
   padding-block: 0.5rem;
   text-align: center;
+  border-bottom: 1px solid darkgray;
+  background-color: rgba(229, 229, 229, 0.011);
 }
 
 th {
-  background: #7a7a7a;
-  color: white;
+  background: rgba(211, 211, 211, 0.596);
+  color: black;
+  /* border: 1px solid darkgray; */
 }

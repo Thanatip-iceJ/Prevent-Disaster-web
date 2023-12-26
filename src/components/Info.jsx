@@ -14,7 +14,8 @@ function Info() {
 
   const { disId } = useParams();
 
-  const { getById, currentDisaster, infoLoading } = useDisaster();
+  const { getById, setCurrentDisId, currentDisaster, infoLoading } =
+    useDisaster();
 
   const newStartDate =
     currentDisaster?.updateDate && currentDisaster.startDate.split(" ")[0];
@@ -98,7 +99,10 @@ function Info() {
           </button>
         </Link>
         <Link>
-          <button className="border border-red-500 text-red-500 px-6 py-3 rounded-sm font-semibold text-xl hover:bg-red-500/[15%] transition-all duration-200">
+          <button
+            onClick={() => setCurrentDisId(disId)}
+            className="border border-red-500 text-red-500 px-6 py-3 rounded-sm font-semibold text-xl hover:bg-red-500/[15%] transition-all duration-200"
+          >
             <div className="flex items-center gap-2">
               <MdDeleteOutline />
               <p>ลบ</p>

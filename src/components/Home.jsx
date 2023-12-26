@@ -9,7 +9,8 @@ import dateFormat from "dateformat";
 
 function Home() {
   const [loading, setLoading] = useState(false);
-  const { setAllDisaster } = useDisaster();
+  const { setAllDisaster, setCurrentProvinceId, setCurrentAmphoeId } =
+    useDisaster();
   useEffect(() => {
     const getAll = async () => {
       try {
@@ -24,6 +25,8 @@ function Home() {
       }
     };
     getAll();
+    setCurrentProvinceId(null);
+    setCurrentAmphoeId(null);
   }, []);
   if (loading)
     return (

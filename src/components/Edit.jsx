@@ -112,7 +112,7 @@ function Edit() {
             <select
               onChange={(e) => editAmphoeOnChange(e)}
               className="border outline-none text-xl px-2"
-              disabled={currentProvinceId ? true : false}
+              disabled={currentProvinceId ? false : true}
             >
               <option value="">---select---</option>
               {newAmphoe.map((x) => (
@@ -131,7 +131,7 @@ function Edit() {
               onChange={editOnChange}
               className="border outline-none text-xl px-2"
               name="tambonName"
-              disabled={currentAmphoeId ? true : false}
+              disabled={currentAmphoeId ? false : true}
             >
               <option value="">---select---</option>
               {newTambon.map((x) => (

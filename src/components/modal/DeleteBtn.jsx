@@ -3,8 +3,10 @@ import { useDisaster } from "../../context/DisasterContext";
 import axios from "../../config/axios";
 import dateFormat from "dateformat";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function DeleteBtn() {
+  const navigate = useNavigate();
   const { currentDisId, setIsOpenDelete, allDisaster, setAllDisaster } =
     useDisaster();
   const handleDelete = async () => {
@@ -18,6 +20,8 @@ function DeleteBtn() {
         allDisaster.filter((x) => x.obstacleId !== res.data.obstacleId)
       );
       setIsOpenDelete(false);
+      navigate("/");
+
       toast.success(`ลบรายงาน id#${res.data.obstacleId} สำเร็จ`);
     } catch (err) {
       console.log(err);

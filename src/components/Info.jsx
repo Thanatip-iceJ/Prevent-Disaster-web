@@ -11,11 +11,20 @@ function Info() {
   const bold = "font-semibold text-xl flex w-[8rem]";
   const regular = "text-xl";
   const navigate = useNavigate();
+  const deleteHandle = () => {
+    setCurrentDisId(disId);
+    setIsOpenDelete(true);
+  };
 
   const { disId } = useParams();
 
-  const { getById, setCurrentDisId, currentDisaster, infoLoading } =
-    useDisaster();
+  const {
+    getById,
+    setCurrentDisId,
+    currentDisaster,
+    infoLoading,
+    setIsOpenDelete,
+  } = useDisaster();
 
   const newStartDate =
     currentDisaster?.updateDate && currentDisaster.startDate.split(" ")[0];
@@ -90,7 +99,7 @@ function Info() {
         </div>
       </div>
       <div className="flex gap-[2rem]">
-        <Link to={"/edit/gg"}>
+        <Link to={`/edit/${disId}`}>
           <button className="border border-gray-500 text-gray-500 px-5 py-3 rounded-sm font-semibold text-xl hover:bg-gray-500/[15%] transition-all duration-200">
             <div className="flex items-center gap-2">
               <MdOutlineEdit />
@@ -98,17 +107,15 @@ function Info() {
             </div>
           </button>
         </Link>
-        <Link>
-          <button
-            onClick={() => setCurrentDisId(disId)}
-            className="border border-red-500 text-red-500 px-6 py-3 rounded-sm font-semibold text-xl hover:bg-red-500/[15%] transition-all duration-200"
-          >
-            <div className="flex items-center gap-2">
-              <MdDeleteOutline />
-              <p>ลบ</p>
-            </div>
-          </button>
-        </Link>
+        <button
+          onClick={deleteHandle}
+          className="border border-red-500 text-red-500 px-6 py-3 rounded-sm font-semibold text-xl hover:bg-red-500/[15%] transition-all duration-200"
+        >
+          <div className="flex items-center gap-2">
+            <MdDeleteOutline />
+            <p>ลบ</p>
+          </div>
+        </button>
       </div>
     </div>
   );
